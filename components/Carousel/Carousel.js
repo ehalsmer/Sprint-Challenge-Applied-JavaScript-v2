@@ -83,7 +83,6 @@ function createCarousel(){
     currentImg = imgs[currentIndex];
     currentImg.style.display = 'block';
   }
-
   console.log(carousel);
   return carousel;
 }
