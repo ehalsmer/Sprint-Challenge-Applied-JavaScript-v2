@@ -73,6 +73,6 @@ function createCard(headlineString, imageUrl, authorString){
     attrib.textContent = `By ${authorString}`;
 
 
-    console.log(card);
+    // console.log(card);
     return card;
 }
