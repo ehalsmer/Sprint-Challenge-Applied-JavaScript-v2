@@ -7,7 +7,7 @@
 //    <h1>Lambda Times</h1>
 //    <span class="temp">98°</span>
 //  </div >
-// And add it to the DOM in the .headerContainer component
+// And add it to the DOM in the .header-container component
 
 function Header() {
     // Create elements
@@ -31,6 +31,12 @@ function Header() {
     date.textContent = `${today}`
     // console.log(date);
     title.textContent = 'Lambda Times';
+    temp.textContent = '98°'; // todo: insert weather/temp api. Default to San Francisco, optional to set location based on zip or city
+
+    // console.log(header);
+    // Return header
+    return header;
 }
 
-Header();
+const headerContainer = document.querySelector('.header-container');
+headerContainer.appendChild(Header());
