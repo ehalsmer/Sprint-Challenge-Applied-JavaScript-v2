@@ -22,6 +22,7 @@ const carouselContainer = document.querySelector('.carousel-container');
 carouselContainer.appendChild(createCarousel());
 
 function createCarousel(){
+  // create
   const carousel = document.createElement('div');
   const leftBtn = document.createElement('div');
   const image1 = document.createElement('img');
@@ -30,6 +31,7 @@ function createCarousel(){
   const image4 = document.createElement('img');
   const rightBtn = document.createElement('div');
 
+  // structure
   carousel.appendChild(leftBtn);
   carousel.appendChild(image1);
   carousel.appendChild(image2);
@@ -37,14 +39,50 @@ function createCarousel(){
   carousel.appendChild(image4);
   carousel.appendChild(rightBtn);
 
+  // classes
   carousel.classList.add('carousel');
   leftBtn.classList.add('left-button');
   rightBtn.classList.add('right-button');
+  // image1.classList.add('show');
+
+  // content
+  leftBtn.textContent = '<';
+  rightBtn.textContent = '>';
 
   image1.src = "./assets/carousel/mountains.jpeg";
   image2.src = './assets/carousel/computer.jpeg';
   image3.src = './assets/carousel/trees.jpeg';
   image4.src = './assets/carousel/turntable.jpeg';
+
+  // image switching:
+  const imgs = [image1, image2, image3, image4]
+  console.log(imgs);
+  let currentIndex = 0;
+  let currentImg = imgs[currentIndex];
+  currentImg.style.display = 'block';
+
+  leftBtn.addEventListener('click', ()=>{previous()})
+  rightBtn.addEventListener('click', ()=>{next()});
+
+  function previous(){
+    imgs.forEach(img => img.style.display = 'none');
+    currentIndex -= 1;
+    if (currentIndex < 0) {
+      currentIndex = 3;
+    }
+    currentImg = imgs[currentIndex];
+    currentImg.style.display = 'block';
+  }
+
+  function next(){
+    imgs.forEach(img => img.style.display = 'none');
+    currentIndex += 1;
+    if (currentIndex > 3){
+      currentIndex = 0;
+    }
+    currentImg = imgs[currentIndex];
+    currentImg.style.display = 'block';
+  }
 
   console.log(carousel);
   return carousel;
